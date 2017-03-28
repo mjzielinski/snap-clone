@@ -1,0 +1,6 @@
+framework module Pods_Snapclone {
+  umbrella header "Pods-Snapclone-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		795920218E49FA26C6430168 /* Pods_Snapclone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A59DAE4DFF5FAD0EF9A374 /* Pods_Snapclone.framework */; };
+		E40D4FAF1E8AE6710080AAB6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40D4FAE1E8AE6710080AAB6 /* User.swift */; };
 		E457CA001E8998EB00392505 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E457C9FF1E8998EB00392505 /* AppDelegate.swift */; };
 		E457CA021E8998EB00392505 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E457CA011E8998EB00392505 /* SignInViewController.swift */; };
 		E457CA051E8998EB00392505 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E457CA031E8998EB00392505 /* Main.storyboard */; };
@@ -23,6 +24,7 @@
 		86DC0B8B609712266934F9AA /* Pods-Snapclone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Snapclone.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Snapclone/Pods-Snapclone.debug.xcconfig"; sourceTree = "<group>"; };
 		C791966A8B7BA5E937D69638 /* Pods-Snapclone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Snapclone.release.xcconfig"; path = "Pods/Target Support Files/Pods-Snapclone/Pods-Snapclone.release.xcconfig"; sourceTree = "<group>"; };
 		D2A59DAE4DFF5FAD0EF9A374 /* Pods_Snapclone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Snapclone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E40D4FAE1E8AE6710080AAB6 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E457C9FC1E8998EB00392505 /* Snapclone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snapclone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E457C9FF1E8998EB00392505 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E457CA011E8998EB00392505 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -65,6 +67,25 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E40D4FB01E8AE6AE0080AAB6 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E457CA011E8998EB00392505 /* SignInViewController.swift */,
+				E4E0DF711E8AAFDC0036BADC /* SnapsViewController.swift */,
+				E4E0DF731E8ABF3B0036BADC /* PictureViewController.swift */,
+				E4E0DF751E8ADC0E0036BADC /* SelectUserViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E40D4FB11E8AE6C60080AAB6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E40D4FAE1E8AE6710080AAB6 /* User.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		E457C9F31E8998EB00392505 = {
 			isa = PBXGroup;
 			children = (
@@ -86,11 +107,9 @@
 		E457C9FE1E8998EB00392505 /* Snapclone */ = {
 			isa = PBXGroup;
 			children = (
+				E40D4FB01E8AE6AE0080AAB6 /* ViewControllers */,
+				E40D4FB11E8AE6C60080AAB6 /* Models */,
 				E457C9FF1E8998EB00392505 /* AppDelegate.swift */,
-				E457CA011E8998EB00392505 /* SignInViewController.swift */,
-				E4E0DF711E8AAFDC0036BADC /* SnapsViewController.swift */,
-				E4E0DF731E8ABF3B0036BADC /* PictureViewController.swift */,
-				E4E0DF751E8ADC0E0036BADC /* SelectUserViewController.swift */,
 				E457CA031E8998EB00392505 /* Main.storyboard */,
 				E457CA061E8998EB00392505 /* Assets.xcassets */,
 				E457CA081E8998EB00392505 /* LaunchScreen.storyboard */,
@@ -227,6 +246,7 @@
 			files = (
 				E457CA021E8998EB00392505 /* SignInViewController.swift in Sources */,
 				E4E0DF741E8ABF3B0036BADC /* PictureViewController.swift in Sources */,
+				E40D4FAF1E8AE6710080AAB6 /* User.swift in Sources */,
 				E4E0DF761E8ADC0E0036BADC /* SelectUserViewController.swift in Sources */,
 				E457CA001E8998EB00392505 /* AppDelegate.swift in Sources */,
 				E4E0DF721E8AAFDC0036BADC /* SnapsViewController.swift in Sources */,

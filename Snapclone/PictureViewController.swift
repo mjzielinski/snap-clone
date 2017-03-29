@@ -81,16 +81,21 @@ class PictureViewController: UIViewController, UITextFieldDelegate, UIImagePicke
             if error != nil {
                 print("Image upload error")
             } else {
-                self.performSegue(withIdentifier: "selectUserSegue", sender: nil)
+                self.performSegue(withIdentifier: "selectUserSegue", sender: metadata?.downloadURL()!.absoluteString)
             }
         }
         
         
     }
     
-    //* prepare for segue
+    //* prepare for segue - here pass information to select user view controller
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let nextVC = segue.destination as! SelectUserViewController
         
+        // pick up imageURL from sender of performSegue
+        nextVC.imageURL = sender as! String!
+        // pick up description from the textfield on this view controller
+        nextVC.snapDescription = descriptionTextField.text!
         
     }
     

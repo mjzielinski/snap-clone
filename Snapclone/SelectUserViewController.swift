@@ -8,12 +8,18 @@
 
 import UIKit
 import FirebaseDatabase
+import FirebaseAuth
 
 class SelectUserViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
+    //* create empty array of User objects
     var users : [User] = []
+    
+    //* create imageURL and snapDescription variables to accept values from PictureViewController
+    var imageURL = ""
+    var snapDescription = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,10 +40,12 @@ class SelectUserViewController: UIViewController, UITableViewDataSource, UITable
         })
     }
 
+    //* specify number of rows based on number of User objects in array
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return users.count
     }
     
+    //* populate the rows with user email addresses
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         
@@ -47,5 +55,23 @@ class SelectUserViewController: UIViewController, UITableViewDataSource, UITable
         
         return cell
     }
+    
+    //* when a row is selected, add the snap for that user
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let user = users[indexPath.row]
+        
+        // snap is a dictionary containing the from, description, imageURL
+        let snap = ["from": FIRAuth.auth()!.currentUser!.email, "description": snapDescription, "imageURL": imageURL]
+        
+        //* set the value from the snap dictionary
+        FIRDatabase.database().reference().child("users").child(user.uid).child("snaps").childByAutoId().setValue(snap)
+        
+        //** pop back to root
+    navigationController!.popToRootViewController(animated: true)
+        
+    }
+    
+    
 
 }

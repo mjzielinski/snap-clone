@@ -20,6 +20,7 @@ class SelectUserViewController: UIViewController, UITableViewDataSource, UITable
     //* create imageURL and snapDescription variables to accept values from PictureViewController
     var imageURL = ""
     var snapDescription = ""
+    var uuid = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,7 +63,8 @@ class SelectUserViewController: UIViewController, UITableViewDataSource, UITable
         let user = users[indexPath.row]
         
         // snap is a dictionary containing the from, description, imageURL
-        let snap = ["from": FIRAuth.auth()!.currentUser!.email, "description": snapDescription, "imageURL": imageURL]
+        let snap = ["from": FIRAuth.auth()!.currentUser!.email, "description": snapDescription, "imageURL": imageURL, "uuid": uuid]
+        print(snap)
         
         //* set the value from the snap dictionary
         FIRDatabase.database().reference().child("users").child(user.uid).child("snaps").childByAutoId().setValue(snap)

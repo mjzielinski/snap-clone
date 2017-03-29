@@ -20,6 +20,7 @@ class PictureViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     
     //* set up imagePicker
     var imagePicker = UIImagePickerController()
+    var uuid = NSUUID().uuidString
     
     
     override func viewDidLoad() {
@@ -76,7 +77,7 @@ class PictureViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         let imageData = UIImageJPEGRepresentation(imageView.image!, 0.1)!
         
         
-        imagesFolder.child("\(NSUUID().uuidString).jpg").put(imageData, metadata: nil) { (metadata, error) in
+        imagesFolder.child("\(uuid).jpg").put(imageData, metadata: nil) { (metadata, error) in
             print("attempt upload image")
             if error != nil {
                 print("Image upload error")
@@ -96,6 +97,7 @@ class PictureViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         nextVC.imageURL = sender as! String!
         // pick up description from the textfield on this view controller
         nextVC.snapDescription = descriptionTextField.text!
+        nextVC.uuid = uuid
         
     }
     

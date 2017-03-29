@@ -12,6 +12,7 @@ import FirebaseAuth
 
 class SelectUserViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    //* outlet to tableView
     @IBOutlet weak var tableView: UITableView!
     
     //* create empty array of User objects
@@ -25,6 +26,7 @@ class SelectUserViewController: UIViewController, UITableViewDataSource, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //* set up table view
         self.tableView.dataSource = self
         self.tableView.delegate = self
 
@@ -34,9 +36,7 @@ class SelectUserViewController: UIViewController, UITableViewDataSource, UITable
             let user = User()
             user.email = (snapshot.value as! NSDictionary)["email"] as! String
             user.uid = snapshot.key
-            
             self.users.append(user)
-            
             self.tableView.reloadData()
         })
     }
@@ -49,11 +49,8 @@ class SelectUserViewController: UIViewController, UITableViewDataSource, UITable
     //* populate the rows with user email addresses
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        
         let user = users[indexPath.row]
-        
         cell.textLabel?.text = user.email
-        
         return cell
     }
     
@@ -62,18 +59,14 @@ class SelectUserViewController: UIViewController, UITableViewDataSource, UITable
         
         let user = users[indexPath.row]
         
-        // snap is a dictionary containing the from, description, imageURL
+        //* snap is a dictionary containing the from, description, imageURL, uuid
         let snap = ["from": FIRAuth.auth()!.currentUser!.email, "description": snapDescription, "imageURL": imageURL, "uuid": uuid]
-        print(snap)
         
         //* set the value from the snap dictionary
         FIRDatabase.database().reference().child("users").child(user.uid).child("snaps").childByAutoId().setValue(snap)
         
         //** pop back to root
-    navigationController!.popToRootViewController(animated: true)
-        
+        navigationController!.popToRootViewController(animated: true)
     }
-    
-    
 
 }
